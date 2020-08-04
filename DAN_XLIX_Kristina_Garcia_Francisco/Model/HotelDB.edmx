@@ -7,9 +7,9 @@
       <Schema Namespace="HotelDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="tblEmployee">
           <Key>
-            <PropertyRef Name="WorkerID" />
+            <PropertyRef Name="EmployeeID" />
           </Key>
-          <Property Name="WorkerID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FloorNumber" Type="int" Nullable="false" />
           <Property Name="Gender" Type="char" MaxLength="1" Nullable="false" />
           <Property Name="Citizenship" Type="varchar" MaxLength="40" Nullable="false" />
@@ -54,6 +54,7 @@ warning 6002: The table/view 'HotelDB.dbo.vwEmployee' does not have a primary ke
             <PropertyRef Name="Gender" />
             <PropertyRef Name="Citizenship" />
             <PropertyRef Name="Responsibility" />
+            <PropertyRef Name="EmployeeID" />
           </Key>
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="FirstName" Type="varchar" MaxLength="40" Nullable="false" />
@@ -67,6 +68,7 @@ warning 6002: The table/view 'HotelDB.dbo.vwEmployee' does not have a primary ke
           <Property Name="Citizenship" Type="varchar" MaxLength="40" Nullable="false" />
           <Property Name="Responsibility" Type="varchar" MaxLength="40" Nullable="false" />
           <Property Name="Salary" Type="varchar" MaxLength="40" />
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'HotelDB.dbo.vwManager' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -82,6 +84,7 @@ warning 6002: The table/view 'HotelDB.dbo.vwManager' does not have a primary key
             <PropertyRef Name="FloorNumber" />
             <PropertyRef Name="YearsOfExperience" />
             <PropertyRef Name="EducationDegree" />
+            <PropertyRef Name="ManagerID" />
           </Key>
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="FirstName" Type="varchar" MaxLength="40" Nullable="false" />
@@ -93,8 +96,9 @@ warning 6002: The table/view 'HotelDB.dbo.vwManager' does not have a primary key
           <Property Name="FloorNumber" Type="int" Nullable="false" />
           <Property Name="YearsOfExperience" Type="int" Nullable="false" />
           <Property Name="EducationDegree" Type="varchar" MaxLength="3" Nullable="false" />
+          <Property Name="ManagerID" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK__tblEmploy__UserI__1367E606">
+        <Association Name="FK__tblEmploy__UserI__32E0915F">
           <End Role="tblUser" Type="Self.tblUser" Multiplicity="1" />
           <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
           <ReferentialConstraint>
@@ -106,7 +110,7 @@ warning 6002: The table/view 'HotelDB.dbo.vwManager' does not have a primary key
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblManage__UserI__164452B1">
+        <Association Name="FK__tblManage__UserI__35BCFE0A">
           <End Role="tblUser" Type="Self.tblUser" Multiplicity="1" />
           <End Role="tblManager" Type="Self.tblManager" Multiplicity="*" />
           <ReferentialConstraint>
@@ -135,7 +139,8 @@ warning 6002: The table/view 'HotelDB.dbo.vwManager' does not have a primary key
     [vwEmployee].[Gender] AS [Gender], 
     [vwEmployee].[Citizenship] AS [Citizenship], 
     [vwEmployee].[Responsibility] AS [Responsibility], 
-    [vwEmployee].[Salary] AS [Salary]
+    [vwEmployee].[Salary] AS [Salary], 
+    [vwEmployee].[EmployeeID] AS [EmployeeID]
     FROM [dbo].[vwEmployee] AS [vwEmployee]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="vwManager" EntityType="Self.vwManager" store:Type="Views" store:Schema="dbo">
@@ -149,14 +154,15 @@ warning 6002: The table/view 'HotelDB.dbo.vwManager' does not have a primary key
     [vwManager].[UserPassword] AS [UserPassword], 
     [vwManager].[FloorNumber] AS [FloorNumber], 
     [vwManager].[YearsOfExperience] AS [YearsOfExperience], 
-    [vwManager].[EducationDegree] AS [EducationDegree]
+    [vwManager].[EducationDegree] AS [EducationDegree], 
+    [vwManager].[ManagerID] AS [ManagerID]
     FROM [dbo].[vwManager] AS [vwManager]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__tblEmploy__UserI__1367E606" Association="Self.FK__tblEmploy__UserI__1367E606">
+          <AssociationSet Name="FK__tblEmploy__UserI__32E0915F" Association="Self.FK__tblEmploy__UserI__32E0915F">
             <End Role="tblUser" EntitySet="tblUser" />
             <End Role="tblEmployee" EntitySet="tblEmployee" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblManage__UserI__164452B1" Association="Self.FK__tblManage__UserI__164452B1">
+          <AssociationSet Name="FK__tblManage__UserI__35BCFE0A" Association="Self.FK__tblManage__UserI__35BCFE0A">
             <End Role="tblUser" EntitySet="tblUser" />
             <End Role="tblManager" EntitySet="tblManager" />
           </AssociationSet>
@@ -168,16 +174,16 @@ warning 6002: The table/view 'HotelDB.dbo.vwManager' does not have a primary key
       <Schema Namespace="HotelDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="tblEmployee">
           <Key>
-            <PropertyRef Name="WorkerID" />
+            <PropertyRef Name="EmployeeID" />
           </Key>
-          <Property Name="WorkerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FloorNumber" Type="Int32" Nullable="false" />
           <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <Property Name="Citizenship" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Responsibility" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Salary" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="tblUser" Relationship="Self.FK__tblEmploy__UserI__1367E606" FromRole="tblEmployee" ToRole="tblUser" />
+          <NavigationProperty Name="tblUser" Relationship="Self.FK__tblEmploy__UserI__32E0915F" FromRole="tblEmployee" ToRole="tblUser" />
         </EntityType>
         <EntityType Name="tblManager">
           <Key>
@@ -188,7 +194,7 @@ warning 6002: The table/view 'HotelDB.dbo.vwManager' does not have a primary key
           <Property Name="YearsOfExperience" Type="Int32" Nullable="false" />
           <Property Name="EducationDegree" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="tblUser" Relationship="Self.FK__tblManage__UserI__164452B1" FromRole="tblManager" ToRole="tblUser" />
+          <NavigationProperty Name="tblUser" Relationship="Self.FK__tblManage__UserI__35BCFE0A" FromRole="tblManager" ToRole="tblUser" />
         </EntityType>
         <EntityType Name="tblUser">
           <Key>
@@ -201,8 +207,8 @@ warning 6002: The table/view 'HotelDB.dbo.vwManager' does not have a primary key
           <Property Name="Email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Username" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="UserPassword" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="tblEmployees" Relationship="Self.FK__tblEmploy__UserI__1367E606" FromRole="tblUser" ToRole="tblEmployee" />
-          <NavigationProperty Name="tblManagers" Relationship="Self.FK__tblManage__UserI__164452B1" FromRole="tblUser" ToRole="tblManager" />
+          <NavigationProperty Name="tblEmployees" Relationship="Self.FK__tblEmploy__UserI__32E0915F" FromRole="tblUser" ToRole="tblEmployee" />
+          <NavigationProperty Name="tblManagers" Relationship="Self.FK__tblManage__UserI__35BCFE0A" FromRole="tblUser" ToRole="tblManager" />
         </EntityType>
         <EntityType Name="vwEmployee">
           <Key>
@@ -217,6 +223,7 @@ warning 6002: The table/view 'HotelDB.dbo.vwManager' does not have a primary key
             <PropertyRef Name="Gender" />
             <PropertyRef Name="Citizenship" />
             <PropertyRef Name="Responsibility" />
+            <PropertyRef Name="EmployeeID" />
           </Key>
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <Property Name="FirstName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
@@ -230,6 +237,7 @@ warning 6002: The table/view 'HotelDB.dbo.vwManager' does not have a primary key
           <Property Name="Citizenship" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Responsibility" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Salary" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="vwManager">
           <Key>
@@ -243,6 +251,7 @@ warning 6002: The table/view 'HotelDB.dbo.vwManager' does not have a primary key
             <PropertyRef Name="FloorNumber" />
             <PropertyRef Name="YearsOfExperience" />
             <PropertyRef Name="EducationDegree" />
+            <PropertyRef Name="ManagerID" />
           </Key>
           <Property Name="UserID" Type="Int32" Nullable="false" />
           <Property Name="FirstName" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
@@ -254,8 +263,9 @@ warning 6002: The table/view 'HotelDB.dbo.vwManager' does not have a primary key
           <Property Name="FloorNumber" Type="Int32" Nullable="false" />
           <Property Name="YearsOfExperience" Type="Int32" Nullable="false" />
           <Property Name="EducationDegree" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ManagerID" Type="Int32" Nullable="false" />
         </EntityType>
-        <Association Name="FK__tblEmploy__UserI__1367E606">
+        <Association Name="FK__tblEmploy__UserI__32E0915F">
           <End Role="tblUser" Type="Self.tblUser" Multiplicity="1" />
           <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
           <ReferentialConstraint>
@@ -267,7 +277,7 @@ warning 6002: The table/view 'HotelDB.dbo.vwManager' does not have a primary key
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblManage__UserI__164452B1">
+        <Association Name="FK__tblManage__UserI__35BCFE0A">
           <End Role="tblUser" Type="Self.tblUser" Multiplicity="1" />
           <End Role="tblManager" Type="Self.tblManager" Multiplicity="*" />
           <ReferentialConstraint>
@@ -285,11 +295,11 @@ warning 6002: The table/view 'HotelDB.dbo.vwManager' does not have a primary key
           <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
           <EntitySet Name="vwEmployees" EntityType="Self.vwEmployee" />
           <EntitySet Name="vwManagers" EntityType="Self.vwManager" />
-          <AssociationSet Name="FK__tblEmploy__UserI__1367E606" Association="Self.FK__tblEmploy__UserI__1367E606">
+          <AssociationSet Name="FK__tblEmploy__UserI__32E0915F" Association="Self.FK__tblEmploy__UserI__32E0915F">
             <End Role="tblUser" EntitySet="tblUsers" />
             <End Role="tblEmployee" EntitySet="tblEmployees" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblManage__UserI__164452B1" Association="Self.FK__tblManage__UserI__164452B1">
+          <AssociationSet Name="FK__tblManage__UserI__35BCFE0A" Association="Self.FK__tblManage__UserI__35BCFE0A">
             <End Role="tblUser" EntitySet="tblUsers" />
             <End Role="tblManager" EntitySet="tblManagers" />
           </AssociationSet>
@@ -303,7 +313,7 @@ warning 6002: The table/view 'HotelDB.dbo.vwManager' does not have a primary key
           <EntitySetMapping Name="tblEmployees">
             <EntityTypeMapping TypeName="HotelDBModel.tblEmployee">
               <MappingFragment StoreEntitySet="tblEmployee">
-                <ScalarProperty Name="WorkerID" ColumnName="WorkerID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
                 <ScalarProperty Name="FloorNumber" ColumnName="FloorNumber" />
                 <ScalarProperty Name="Gender" ColumnName="Gender" />
                 <ScalarProperty Name="Citizenship" ColumnName="Citizenship" />
@@ -352,6 +362,7 @@ warning 6002: The table/view 'HotelDB.dbo.vwManager' does not have a primary key
                 <ScalarProperty Name="Citizenship" ColumnName="Citizenship" />
                 <ScalarProperty Name="Responsibility" ColumnName="Responsibility" />
                 <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -368,6 +379,7 @@ warning 6002: The table/view 'HotelDB.dbo.vwManager' does not have a primary key
                 <ScalarProperty Name="FloorNumber" ColumnName="FloorNumber" />
                 <ScalarProperty Name="YearsOfExperience" ColumnName="YearsOfExperience" />
                 <ScalarProperty Name="EducationDegree" ColumnName="EducationDegree" />
+                <ScalarProperty Name="ManagerID" ColumnName="ManagerID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

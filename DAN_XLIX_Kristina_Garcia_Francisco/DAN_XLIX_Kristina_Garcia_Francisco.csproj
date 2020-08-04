@@ -65,6 +65,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Converter\DateConverter.cs" />
+    <Compile Include="Converter\RadioButtonConverter.cs" />
+    <Compile Include="Helper\Validation.cs" />
+    <Compile Include="Model\Employee.cs" />
     <Compile Include="Model\HotelDB.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -81,6 +85,7 @@
       <DependentUpon>HotelDB.edmx</DependentUpon>
     </Compile>
     <Compile Include="Model\LoggedUser.cs" />
+    <Compile Include="Model\Manager.cs" />
     <Compile Include="Model\tblEmployee.cs">
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
@@ -97,10 +102,18 @@
       <DependentUpon>HotelDB.tt</DependentUpon>
     </Compile>
     <Compile Include="Service.cs" />
+    <Compile Include="ViewModel\AddUserViewModel.cs" />
+    <Compile Include="ViewModel\AllUsersViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
-    <Compile Include="View\AddUser.xaml.cs">
-      <DependentUpon>AddUser.xaml</DependentUpon>
+    <Compile Include="View\AddEmployee.xaml.cs">
+      <DependentUpon>AddEmployee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddManager.xaml.cs">
+      <DependentUpon>AddManager.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AllUsers.xaml.cs">
+      <DependentUpon>AllUsers.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Employee.xaml.cs">
       <DependentUpon>Employee.xaml</DependentUpon>
@@ -116,7 +129,15 @@
     <Compile Include="View\Manager.xaml.cs">
       <DependentUpon>Manager.xaml</DependentUpon>
     </Compile>
-    <Page Include="View\AddUser.xaml">
+    <Page Include="View\AddEmployee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddManager.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AllUsers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -164,6 +185,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="Resources\password.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -172,8 +194,8 @@
     <Content Include="DDL\DDL.sql" />
     <Content Include="Model\HotelDB.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>HotelDB.Context.cs</LastGenOutput>
       <DependentUpon>HotelDB.edmx</DependentUpon>
+      <LastGenOutput>HotelDB.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Model\HotelDB.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

@@ -26,5 +26,6 @@ namespace DAN_XLIX_Kristina_Garcia_Francisco.Model
         public string Citizenship { get; set; }
         public string Responsibility { get; set; }
         public string Salary { get; set; }
+        public int EmployeeID { get; set; }
     }
 }

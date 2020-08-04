@@ -24,5 +24,6 @@ namespace DAN_XLIX_Kristina_Garcia_Francisco.Model
         public int FloorNumber { get; set; }
         public int YearsOfExperience { get; set; }
         public string EducationDegree { get; set; }
+        public int ManagerID { get; set; }
     }
 }

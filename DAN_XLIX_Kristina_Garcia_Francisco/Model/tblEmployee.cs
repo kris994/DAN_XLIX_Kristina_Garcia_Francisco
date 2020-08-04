@@ -14,7 +14,7 @@ namespace DAN_XLIX_Kristina_Garcia_Francisco.Model
     
     public partial class tblEmployee
     {
-        public int WorkerID { get; set; }
+        public int EmployeeID { get; set; }
         public int FloorNumber { get; set; }
         public string Gender { get; set; }
         public string Citizenship { get; set; }

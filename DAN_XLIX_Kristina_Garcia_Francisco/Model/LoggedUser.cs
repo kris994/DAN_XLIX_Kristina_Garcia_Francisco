@@ -6,7 +6,7 @@
     public static class LoggedUser
     {
         /// <summary>
-        /// Current user
+        /// Current User
         /// </summary>
         private static tblUser currentUser;
         public static tblUser CurrentUser
