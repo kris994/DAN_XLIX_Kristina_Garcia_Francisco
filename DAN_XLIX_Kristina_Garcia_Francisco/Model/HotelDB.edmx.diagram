@@ -4,14 +4,14 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="52545dffd5474049afe3907f158f6eda" Name="Diagram1">
+      <Diagram DiagramId="ed009272224247348cb8f604a514410a" Name="Diagram1">
         <EntityTypeShape EntityType="HotelDBModel.tblEmployee" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
         <EntityTypeShape EntityType="HotelDBModel.tblManager" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
         <EntityTypeShape EntityType="HotelDBModel.tblUser" Width="1.5" PointX="0.75" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="HotelDBModel.vwEmployee" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HotelDBModel.vwManager" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
-        <AssociationConnector Association="HotelDBModel.FK__tblEmploy__UserI__1367E606" ManuallyRouted="false" />
-        <AssociationConnector Association="HotelDBModel.FK__tblManage__UserI__164452B1" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelDBModel.FK__tblEmploy__UserI__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="HotelDBModel.FK__tblManage__UserI__35BCFE0A" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

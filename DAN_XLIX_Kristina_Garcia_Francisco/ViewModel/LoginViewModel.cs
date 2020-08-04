@@ -106,7 +106,7 @@ namespace DAN_XLIX_Kristina_Garcia_Francisco.ViewModel
             {
                 InfoLabel = "Logged in";
 
-                AddUser addUser = new AddUser();
+                AllUsers addUser = new AllUsers();
                 view.Close();
                 addUser.Show();
             }
@@ -128,14 +128,13 @@ namespace DAN_XLIX_Kristina_Garcia_Francisco.ViewModel
                         };
                         InfoLabel = "Logged in";
                         found = true;
-
-                        if (User.UserID == int.Parse(service.GetAllManagers().Where(id => id.UserID == User.UserID).ToString()))
+                        if (service.GetAllManagers().Any(id => id.UserID == UserList[i].UserID) == true)
                         {
                             Manager man = new Manager();
                             view.Close();
                             man.Show();
                         }
-                        else if(User.UserID == int.Parse(service.GetAllEmployees().Where(id => id.UserID == User.UserID).ToString()))
+                        else if(service.GetAllEmployees().Any(id => id.UserID == UserList[i].UserID) == true)
                         {
                             Employee emp = new Employee();
                             view.Close();

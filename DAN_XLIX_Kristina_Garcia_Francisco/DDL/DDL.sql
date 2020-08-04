@@ -23,8 +23,8 @@ CREATE TABLE tblUser(
 
 USE HotelDB
 CREATE TABLE tblEmployee (
-	WorkerID INT IDENTITY(1,1) PRIMARY KEY		NOT NULL,
-	FloorNumber INT  							NOT NULL,
+	EmployeeID INT IDENTITY(1,1) PRIMARY KEY	NOT NULL,
+	FloorNumber INT,
 	Gender CHAR									NOT NULL,
 	Citizenship VARCHAR (40)					NOT NULL,
 	Responsibility VARCHAR (40)					NOT NULL,
@@ -45,13 +45,13 @@ GO
 CREATE VIEW vwEmployee AS
 	SELECT	tblUser.*, 
 			tblEmployee.FloorNumber, tblEmployee.Gender, tblEmployee.Citizenship, 
-			tblEmployee.Responsibility, tblEmployee.Salary
+			tblEmployee.Responsibility, tblEmployee.Salary, tblEmployee.EmployeeID
 	FROM	tblUser, tblEmployee
 	WHERE	tblUser.UserID = tblEmployee.UserID
 
 GO
 CREATE VIEW vwManager AS
 	SELECT	tblUser.*, 
-			tblManager.FloorNumber, tblManager.YearsOfExperience, tblManager.EducationDegree
+			tblManager.FloorNumber, tblManager.YearsOfExperience, tblManager.EducationDegree, tblManager.ManagerID
 	FROM	tblUser, tblManager 
 	WHERE	tblUser.UserID = tblManager.UserID
