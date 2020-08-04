@@ -256,24 +256,18 @@ namespace DAN_XLIX_Kristina_Garcia_Francisco.ViewModel
                     AddEmployee addEmployee = new AddEmployee(Employee);
                     addEmployee.ShowDialog();
 
-                    if ((addEmployee.DataContext as AddUserViewModel).IsUpdateEmployee == true)
-                    {
-                        EmployeeList = service.GetAllEmployees().ToList();
-                        AllInfoEmployeeList = service.GetAllEmployeesInfo().ToList();
-                        UserList = service.GetAllUsers().ToList();
-                    }
+                    EmployeeList = service.GetAllEmployees().ToList();
+                    AllInfoEmployeeList = service.GetAllEmployeesInfo().ToList();
+                    UserList = service.GetAllUsers().ToList();
                 }
                 if (Manager != null)
                 {
                     AddManager addManager = new AddManager(Manager);
                     addManager.ShowDialog();
 
-                    if ((addManager.DataContext as AddUserViewModel).IsUpdateManager == true)
-                    {
-                        ManagerList = service.GetAllManagers().ToList();
-                        AllInfoManagerList = service.GetAllManagersInfo().ToList();
-                        UserList = service.GetAllUsers().ToList();
-                    }
+                    ManagerList = service.GetAllManagers().ToList();
+                    AllInfoManagerList = service.GetAllManagersInfo().ToList();
+                    UserList = service.GetAllUsers().ToList();
                 }
             }
             catch (Exception ex)

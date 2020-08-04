@@ -116,7 +116,7 @@
                  Text="{Binding Employee.FloorNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"
                  Style="{StaticResource textBoxInError}" PreviewTextInput="NumberValidationTextBox"/>
         <StackPanel Orientation="Horizontal" Grid.Column="3" Grid.Row="15">
-            <RadioButton  GroupName="gender" Width="40" Name="cbM" Content="Male" IsChecked="{Binding Employee.Gender, 
+            <RadioButton  GroupName="gender" Width="65" Name="cbM" Content="Male" IsChecked="{Binding Employee.Gender, 
                 Converter={StaticResource ResourceKey=radioButtonConverter}, ConverterParameter=M, UpdateSourceTrigger=PropertyChanged}"></RadioButton>
             <RadioButton  GroupName="gender" Width="65" Name="cbF" Content="Female" IsChecked="{Binding Employee.Gender, 
                 Converter={StaticResource ResourceKey=radioButtonConverter}, ConverterParameter=F, UpdateSourceTrigger=PropertyChanged}"></RadioButton>

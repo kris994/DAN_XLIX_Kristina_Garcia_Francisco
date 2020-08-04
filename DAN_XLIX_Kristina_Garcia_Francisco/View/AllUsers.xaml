@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DAN_XLIX_Kristina_Garcia_Francisco"
         mc:Ignorable="d"
-        Title="MainWindow" Height="auto" MaxHeight="450" Width="auto" MaxWidth="1200">
+        Title="Users" Height="auto" MaxHeight="450" Width="auto" MaxWidth="1200">
     <Window.Resources>
     </Window.Resources>
     <Grid Margin="0">
