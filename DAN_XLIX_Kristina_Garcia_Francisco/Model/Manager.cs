@@ -13,7 +13,8 @@ namespace DAN_XLIX_Kristina_Garcia_Francisco.Model
         static readonly string[] ValidatedProperties =
         {
             "Email",
-            "Username"
+            "Username",
+            "EducationDegree"
         };
 
         /// <summary>
@@ -58,6 +59,10 @@ namespace DAN_XLIX_Kristina_Garcia_Francisco.Model
 
                 switch (propertyName)
                 {
+                    case "EducationDegree":
+                        result = this.validation.DegreeChecker(EducationDegree);
+                        break;
+
                     case "Username":
                         result = this.validation.UsernameChecker(Username, UserID);
                         break;
