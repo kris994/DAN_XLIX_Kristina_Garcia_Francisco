@@ -130,9 +130,9 @@ namespace DAN_XLIX_Kristina_Garcia_Francisco.ViewModel
                         found = true;
                         if (service.GetAllManagers().Any(id => id.UserID == UserList[i].UserID) == true)
                         {
-                            Manager man = new Manager();
+                            AllUsers users = new AllUsers();
                             view.Close();
-                            man.Show();
+                            users.Show();
                         }
                         else if(service.GetAllEmployees().Any(id => id.UserID == UserList[i].UserID) == true)
                         {

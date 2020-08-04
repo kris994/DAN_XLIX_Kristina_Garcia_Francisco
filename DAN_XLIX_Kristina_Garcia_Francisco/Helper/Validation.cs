@@ -27,6 +27,25 @@ namespace DAN_XLIX_Kristina_Garcia_Francisco.Helper
         }
 
         /// <summary>
+        /// Checks if the degree is valid
+        /// </summary>
+        /// <param name="degree">degree we are checking</param>
+        /// <returns>null if the input is correct or string error message if its wrong<</returns>
+        public string DegreeChecker(string degree)
+        {
+            if(degree == null)
+            {
+                return "Degree cannot be empty.";
+            }
+
+            if (degree != "I" && degree != "II" && degree != "III" && degree != "IV" && degree != "V" && degree != "VI" && degree != "VII")
+            {
+                return "Invalid degree";
+            }
+
+            return null;
+        }
+        /// <summary>
         /// Checks if the Username is exists
         /// </summary>
         /// <param name="username">the username we are checking</param>
